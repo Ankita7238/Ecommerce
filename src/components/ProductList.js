@@ -32,7 +32,7 @@ const ProductList = () => {
   return (
     <>
     <h2 className='my-5 font-bold text-center text-xl'>Products</h2>
-    <div className='mt-5 mb-2 w-[70vw] m-auto grid grid-cols-2 gap-x-4 gap-y-10' >
+    <div className='my-5 w-auto lg:w-[70vw] mx-auto grid grid-cols-2 gap-x-4 gap-y-10 justify-center items-center' >
         {
             productsArr.map((product,i)=>{
                 return <ProductItem product={product} key={i}/>
