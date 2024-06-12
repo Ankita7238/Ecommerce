@@ -2,6 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
+    // aboutpage
     <div className='w-[50vw] m-auto'>
       <h2 className='font-serif font-semibold text-xl my-5 text-center'>About</h2>
       <div className='w-1/4 mx-4 rounded-full border-2 flex p-3 object-cover overflow-clip  float-left'>

@@ -2,6 +2,7 @@ import React from 'react'
 import { FaCirclePlay } from "react-icons/fa6";
 const Home = () => {
   return (
+    //homepage 
     <>
     <div className='flex flex-col gap-y-4 justify-center items-center bg-slate-700 p-5'>
         <div className='rounded-md p-4 font-semibold text-2xl border border-blue-400'>Get our Latest Album</div>
