@@ -1,7 +1,19 @@
 import React from 'react'
+import { useContext } from "react";
 import { NavLink } from 'react-router-dom'
+import CartContext from '../store/cart-context';
 
 const Header = () => {
+  const cartCtx = useContext(CartContext);
+  console.log(cartCtx);
+  const totalItems = cartCtx.cartItem.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  const cartHandler = () => {
+    cartCtx.onVisible();
+  };
   return (
     <>
     <header className='bg-black text-xl font- p-4 flex justify-between items-center text-white border-white border-b-4'>
@@ -11,8 +23,8 @@ const Header = () => {
             <div><NavLink to="/about">About</NavLink></div>
         </nav>
         <div className='relative'>
-            <div type="button" className='py-1 px-3 rounded-md border-solid border-2 border-white'>Cart</div>
-            <div className=' p-1 rounded-full bg-red-600 absolute -top-2 -right-1 text-sm'>0</div>
+            <button type="button" className='py-1 px-3 rounded-md border-solid border-2 border-white' onClick={cartHandler}>Cart</button>
+            <div className=' p-1 rounded-full bg-red-600 absolute -top-2 -right-1 text-sm'>{totalItems}</div>
         </div>
     </header>
     <section  className='bg-slate-700'>

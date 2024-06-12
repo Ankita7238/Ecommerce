@@ -1,5 +1,7 @@
 import React from 'react'
 import ProductItem from './ProductItem.js'
+import CartContext from "../store/cart-context";
+import { useContext } from "react";
 
 const productsArr = [
 {
@@ -29,6 +31,10 @@ imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
 ]
 
 const ProductList = () => {
+  const cartCtx = useContext(CartContext);
+  const cartHandler = () => {
+    cartCtx.onVisible();
+  };
   return (
     <>
     <h2 className='my-5 font-bold text-center text-xl'>Products</h2>
@@ -40,7 +46,7 @@ const ProductList = () => {
         }
     </div>
     <div className='my-8 flex justify-center'>
-    <button className=' my-4 p-2 font-semibold bg-blue-400 hover:bg-blue-600 ' type='submit'>See the Cart</button>
+    <button className=' my-4 p-2 font-semibold bg-blue-400 hover:bg-blue-600 ' type='submit' onClick={cartHandler}>See the Cart</button>
     </div>
     </>
   )
