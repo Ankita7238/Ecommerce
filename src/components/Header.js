@@ -21,6 +21,7 @@ const Header = () => {
             <div><NavLink to="/home">Home</NavLink></div>
             <div><NavLink to="/">Store</NavLink></div>
             <div><NavLink to="/about">About</NavLink></div>
+            <div><NavLink to="/contact">Contact Us</NavLink></div>
         </nav>
         <div className='relative'>
             <button type="button" className='py-1 px-3 rounded-md border-solid border-2 border-white' onClick={cartHandler}>Cart</button>
