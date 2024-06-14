@@ -16,14 +16,14 @@ const ContextProvider = (props) => {
       const updatedCart = [...cartItems];
       updatedCart[existingItemIndex] = {
         ...updatedCart[existingItemIndex],
-        quantity: updatedCart[existingItemIndex].quantity + 1,
+        quantity: updatedCart[existingItemIndex].quantity + Number(cartItemToAdd.quantity),
       };
       setCartItems(updatedCart);
     } else {
       // If the product is not in the cart, add it with quantity 1
       setCartItems((prevCartItems) => [
         ...prevCartItems,
-        { ...cartItemToAdd, quantity: 1 },
+        { ...cartItemToAdd, quantity: Number(cartItemToAdd.quantity) },
       ]);
     }
   };
