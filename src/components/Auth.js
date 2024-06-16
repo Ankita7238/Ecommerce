@@ -14,6 +14,8 @@ const Auth = () => {
     setIsLogin((prevState) => !prevState);
   };
 
+  const sanitizeEmail = (email) => email.replace(/[@.]/g, '');
+
   const submitFormHandler = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -53,7 +55,8 @@ const Auth = () => {
       }
 
       const data = await response.json();
-      authCtx.login(data.idToken);
+      let urlemail= sanitizeEmail(email)
+      authCtx.login(data.idToken,urlemail);
       console.log(authCtx.isLoggedIn)
       navigate('/');
     } catch (err) {
