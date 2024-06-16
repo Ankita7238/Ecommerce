@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ProductList from './components/ProductList';
 import Home from './components/Home';
 import ProductDetails from './components/ProductDetails';
+import Auth from './components/Auth';
 import Contact from './components/Contact';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const DefaultLayout = ({ children }) => (
@@ -42,6 +43,11 @@ function App() {
         <Route path="/product/:title" element={(
             <DefaultLayout>
               <ProductDetails />
+            </DefaultLayout>
+          )}/>
+          <Route path="/auth" element={(
+            <DefaultLayout>
+              <Auth />
             </DefaultLayout>
           )}/>
       </Routes>
