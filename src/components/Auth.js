@@ -54,6 +54,7 @@ const Auth = () => {
 
       const data = await response.json();
       authCtx.login(data.idToken);
+      console.log(authCtx.isLoggedIn)
       navigate('/');
     } catch (err) {
       alert(err.message);

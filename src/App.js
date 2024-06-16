@@ -1,4 +1,5 @@
 import './index.css'
+import { useContext } from 'react';
 import Header from './components/Header';
 import About from './components/About'; 
 import Footer from './components/Footer';
@@ -7,6 +8,7 @@ import Home from './components/Home';
 import ProductDetails from './components/ProductDetails';
 import Auth from './components/Auth';
 import Contact from './components/Contact';
+import AuthContext from './store/auth-context';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const DefaultLayout = ({ children }) => (
   <>
@@ -17,12 +19,15 @@ const DefaultLayout = ({ children }) => (
 );
 
 function App() {
+  const authctx = useContext(AuthContext)
   return (
     <Router>
       <Routes>
         <Route path="/" element={(
             <DefaultLayout>
-              <ProductList />
+              {
+                authctx.isLoggedIn ?<ProductList />:<Auth/>
+              }
             </DefaultLayout>
           )}/>
         <Route path="/about" element={(
@@ -42,7 +47,9 @@ function App() {
           )}/>
         <Route path="/product/:title" element={(
             <DefaultLayout>
-              <ProductDetails />
+              {
+                authctx.isLoggedIn ? <ProductDetails />:<Auth/>
+              }
             </DefaultLayout>
           )}/>
           <Route path="/auth" element={(
